@@ -25,6 +25,9 @@ class Task
     #[ORM\Column]
     private ?bool $state = null;
 
+    #[ORM\Column]
+    private ?int $priority = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -62,6 +65,18 @@ class Task
     public function setState(bool $state): static
     {
         $this->state = $state;
+
+        return $this;
+    }
+
+    public function getPriority(): ?int
+    {
+        return $this->priority;
+    }
+
+    public function setPriority(int $priority): static
+    {
+        $this->priority = $priority;
 
         return $this;
     }
